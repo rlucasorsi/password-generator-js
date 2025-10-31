@@ -24,7 +24,7 @@ A aplicação permite criar senhas fortes com diferentes critérios, garantindo 
 ---
 
 ## 📂 Estrutura do Projeto
-
+```
 📁 password-generator-js/
 │
 ├── 📁 css/
@@ -36,7 +36,7 @@ A aplicação permite criar senhas fortes com diferentes critérios, garantindo 
 ├── 📁 img/             # Imagens e ícones utilizados no projeto
 │
 └── index.html          # Interface principal
-
+```
 ---
 
 ## 🚀 Como Executar
