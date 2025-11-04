@@ -38,7 +38,7 @@ const generatePassword = (
 ) => {
   let password = "";
 
-  const passwordLength = lengthInput.value;
+  const passwordLength = +lengthInput.value;
 
   const generators = [];
 
@@ -55,7 +55,8 @@ const generatePassword = (
   }
 
   if (generators.length === 0) return;
-  for (i = 0; i < passwordLength; i = i + 4) {
+
+  for (i = 0; i < passwordLength; i = i + generators.length) {
     generators.forEach(() => {
       const randomValue =
         generators[Math.floor(Math.random() * generators.length)]();
@@ -83,4 +84,18 @@ generatePasswordButton.addEventListener("click", () => {
 
 openCloseGeneratorButton.addEventListener("click", () => {
   generatePasswordContainer.classList.toggle("hide");
+});
+
+copyPasswordButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const password = generatePasswordElement.querySelector("h4").innerText;
+
+  navigator.clipboard.writeText(password).then(() => {
+    copyPasswordButton.innerText = "Senha copiada com sucesso!";
+
+    setTimeout(() => {
+      copyPasswordButton.innerText = "Copiar";
+    }, 1000);
+  });
 });
